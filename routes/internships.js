@@ -20,7 +20,7 @@ router.route("/add").post((req, res) => {
     const location=req.body.location;
     const due_date=req.body.due_date;
     const remote=req.body.remote;
-    const view_more = req.body.website;
+    const link = req.body.link;
 
     
     const newInternship = new Internship({
@@ -32,7 +32,7 @@ router.route("/add").post((req, res) => {
         location,
         due_date,
         remote,
-        view_more
+        link
         
     });
 

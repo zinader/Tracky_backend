@@ -13,7 +13,7 @@ const internshipSchema = new Schema(
     location:{type:String,required:true},
     due_date:{type:String,required:false},
     remote:{type: Boolean,required:false},
-    view_more:{type: String,required:false},
+    link:{type: String,required:false},
     
   },
   {
