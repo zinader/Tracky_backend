@@ -12,7 +12,7 @@ const internshipSchema = new Schema(
     company: { type: String, required: true },
     location:{type:String,required:true},
     due_date:{type:String,required:false},
-    remote:{type: Boolean,required:false},
+    remote:{type: Boolean,default:false,required:false},
     link:{type: String,required:false},
     
   },
