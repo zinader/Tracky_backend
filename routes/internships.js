@@ -4,37 +4,28 @@ import Internship from "../models/internships_model.js";
 
 //get all internships
 router.route("/").get((req, res) => {
-    Internship.find()
-        .then(internships => res.json(internships))
-
+  Internship.find().then((internships) => res.json(internships));
 });
-
 
 //adding a new item to  the internships
 router.route("/add").post((req, res) => {
-  
-    
-    const name = req.body.name;
-    const description = req.body.description;
-    const company = req.body.company;
-    const location=req.body.location;
-    const due_date=req.body.due_date;
-    const remote=req.body.remote;
-    const view_more = req.body.website;
+  const name = req.body.name;
+  const description = req.body.description;
+  const company = req.body.company;
+  const location = req.body.location;
+  const due_date = req.body.due_date;
+  const remote = req.body.remote;
+  const view_more = req.body.website;
 
-    
-    const newInternship = new Internship({
-        
-      
-        name,
-        description,
-        company,
-        location,
-        due_date,
-        remote,
-        view_more
-        
-    });
+  const newInternship = new Internship({
+    name,
+    description,
+    company,
+    location,
+    due_date,
+    remote,
+    view_more,
+  });
 
   newInternship
     .save()
@@ -49,5 +40,11 @@ router.route("/:id").delete((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/location/:id").get((req, res) => {
+  console.log(req.params.id);
+  Internship.find({ location: req.params.id })
+    .then((internships) => res.json(internships))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
 
 export default router;
