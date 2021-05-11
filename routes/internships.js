@@ -41,7 +41,7 @@ router.route("/:id").delete((req, res) => {
 });
 
 router.route("/location/:id").get((req, res) => {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   Internship.find({ location: req.params.id })
     .then((internships) => res.json(internships))
     .catch((err) => res.status(400).json("Error: " + err));
