@@ -1,10 +1,13 @@
 import express from "express";
 const router = express.Router();
 import Internship from "../models/internships_model.js";
+// var cron = require("node-cron");
 
 //get all internships
 router.route("/").get((req, res) => {
-  Internship.find().then((internships) => res.json(internships));
+  Internship.find({ status: true }).then((internships) =>
+    res.json(internships)
+  );
 });
 
 //adding a new item to  the internships
@@ -48,3 +51,7 @@ router.route("/location/:id").get((req, res) => {
 });
 
 export default router;
+
+// cron.schedule("1-31 * * * *", () => {
+//   console.log("running every minute to 1 from 5");
+// });
