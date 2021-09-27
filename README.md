@@ -16,3 +16,5 @@
     "remote": true/false,
 }
 ```
+
+Company logo api: `https://autocomplete.clearbit.com/v1/companies/suggest?query=`
