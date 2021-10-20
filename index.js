@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import router from "./routes/internships.js";
+import UserRouter from "./routes/user.js";
 
 // setup express
 const app = express();
@@ -18,9 +20,9 @@ app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
 
-import router from "./routes/internships.js";
 
-app.use("/internships", router);
+app.use("/v1", router);
+app.use("/v1/users", UserRouter)
 
 //setup mongoose
 console.log("Connecting to MongoDB");
