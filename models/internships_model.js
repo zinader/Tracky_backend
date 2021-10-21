@@ -12,7 +12,7 @@ const internshipSchema = new Schema(
     due_date: { type: String, required: false },
     remote: { type: Boolean, default: false, required: false },
     link: { type: String, required: false },
-    status: { type: Boolean, default: true, required: true },
+    status: { type: Boolean, default: true, required: true }
   },
   {
     timestamps: true,
